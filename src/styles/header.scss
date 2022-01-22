@@ -1,0 +1,89 @@
+@import "variables";
+@import "mixins";
+
+.header-container {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.5rem 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 8rem;
+
+    z-index: 10000;
+}
+
+.header-background {
+    display: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    @include respond(phone1) {
+        height: 87.5vh;
+    }
+
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+
+    z-index: 100;
+}
+
+#tsparticles {
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(circle, $color-primary 30%, $color-primary-dark-2 100%);
+}
+
+.tsparticles-canvas-el {
+    height: 100%;
+}
+
+.header--logo {
+    font-size: 3rem;
+    font-weight: 600;
+    width: 40%;
+
+    color: $color-white;
+
+    font-family: $font-head;
+
+    @include respond(phone1) {
+        width: 55%;
+    }
+}
+
+.header__cta {
+    width: 40%;
+    @include respond(phone1) {
+        width: 55%;
+    }
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+
+    & > a > img {
+        height: 5rem;
+        width: 5rem;
+        margin-right: 1rem;
+    }
+
+    & > h1 {
+        font-size: 3rem;
+        font-weight: 600;
+
+        color: $color-white;
+
+        font-family: $font-head;
+
+        & > a {
+            color: $color-white;
+        }
+    }
+}

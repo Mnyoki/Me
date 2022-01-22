@@ -1,42 +1,72 @@
-import * as React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import React from 'react';
+import Particles from 'react-particles-js';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+import DesktopNav from './desktopNav';
+import MobileNav from './mobileNav';
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+import useWindowDimensions from '../hooks/useWindowDimensions';
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
+import './../styles/header.scss';
 
-export default Header
+const Header = () => {
+
+    const { screenWidth } = useWindowDimensions();
+
+    return (
+        <>    
+            <div className="header-background">
+                <Particles params={{
+                    "particles": {
+                        "number": {
+                            "value": 47
+                        },
+                        "size": {
+                            "value": 3.75,
+                            "random": true,
+
+                            "anim": {
+                                "enable": true,
+                                "speed": 2,
+                                "size_min": 0.5
+                            }
+                        },
+                        "move": {
+                            "random": true,
+                            "speed": 1.5
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 80
+                        }
+                    }
+                }}/>
+            </div>
+
+            <header className="header-container">
+
+                <div className="header__cta">
+                    <a href="https://github.com/Mnyoki" target="_blank" rel="noreferrer">
+                        <img src={'static/github.svg'} alt="github" />
+                    </a>
+                    <h1 className="header--logo">
+                        <a href="https://github.com/Mnyoki" target="_blank" rel="noreferrer">
+                            MOSES&nbsp;MUNYOKI
+                        </a>
+                    </h1>
+                </div>
+
+                {
+                    screenWidth > 750 ? (
+                        <DesktopNav />
+                    ) : (
+                        <MobileNav />
+                    )
+                }
+
+            </header>
+        </>
+        
+    )
+};
+
+export default Header;

@@ -1,0 +1,25 @@
+//Media queries
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone4 {
+        @media (max-width: 21rem) { @content }; //336px - for hero text and icons
+    }
+    @if $breakpoint == phone3 {
+        @media (max-width: 25em) { @content }; //400px
+    }
+    @if $breakpoint == phone2 {
+        @media (max-width: 26.375em) { @content }; //422px - for hero text
+    }
+    @if $breakpoint == phone1 {
+        @media (max-width: 31.5em) { @content }; //500px
+    }
+    @if $breakpoint == tablet3 {
+        @media (max-width: 37.5em) { @content }; //600px
+    }
+    @if $breakpoint == tablet2 {
+        @media (max-width: 43.75em) { @content }; //700px
+    }
+    @if $breakpoint == tablet1 {
+        @media (max-width: 53.125em) { @content }; //850px
+    }
+}

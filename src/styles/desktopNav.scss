@@ -1,0 +1,23 @@
+.nav-desktop {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    & > * {
+        font-size: 3rem;
+        color: #FFFFFF;
+        background: none;
+        border: none;
+        text-decoration: underline;
+        cursor: pointer;
+
+        & > a {
+            color: #FFFFFF;
+        }
+    }
+
+    & > button > a {
+        color: #FFFFFF;
+    }
+}

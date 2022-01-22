@@ -1,0 +1,32 @@
+@import "variables";
+@import "mixins";
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+
+    @include respond(tablet2) {
+        font-size: 58%;
+    }
+    @include respond(phone1) {
+        font-size: 52%;
+    }
+}
+
+body {
+    box-sizing: border-box;
+    font-family: $font-body;
+    font-size: $default-font-size;
+
+    color: #121212; 
+}

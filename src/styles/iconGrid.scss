@@ -1,0 +1,64 @@
+@import "variables";
+@import "mixins";
+
+.icon-grid {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(5, auto);
+    grid-row-gap: 4rem;
+
+    margin-bottom: 10rem;
+
+    @include respond(phone1) {
+        grid-template-columns: repeat(4, auto);
+
+        margin-bottom: 0;
+    }
+    @include respond(phone4) {
+        grid-template-columns: repeat(3, auto);
+
+        margin-bottom: 4rem;
+    }
+    opacity: 0;
+
+    transition: all 600ms;
+
+    &.loaded {
+        opacity: 1;
+
+        transition: all 400ms;
+    }
+
+    &--card {
+        height: 12rem;
+        @include respond(tablet1) {
+            height: 9rem;
+        }
+        @include respond(phone1) {
+            height: 8.5rem;
+        }
+        @include respond(phone3) {
+            height: 7.6rem;
+        }
+        @include respond(phone4) {
+            height: 8rem;
+        }
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        & > img {
+            height: 80%;
+            filter: drop-shadow(0px 2px 8px rgba($color-primary-light, 0.7));
+        }
+
+        & > span {
+            display: inline-block;
+            text-align: center;
+            font-size: 2rem;
+            color: $color-primary-light;
+            height: 10%;
+        }
+    }
+}
